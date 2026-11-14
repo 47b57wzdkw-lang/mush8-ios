@@ -1,0 +1,12 @@
+NOTICE
+
+Mush8 — a native Mach-O iOS/macOS port of Mario Kart 8 Deluxe — is by Constantin Clerc
+(c22dev), licensed under GPL-3.0: https://github.com/c22dev/mush8
+
+This repository is a fork that adds the iOS build path and documents the runtime shader-corpus
+pipeline in docs/. It is distributed under the same licence (see LICENSE).
+
+This repository intentionally contains no game data of any kind: no prod.keys, no .nsp/.xci/
+.nca, no extracted ExeFS modules, no firmware, no Mii data, no captured shaders and no pipeline
+archives. Building or running it requires the user's own game dump. Do not redistribute data
+captured from the game.

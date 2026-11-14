@@ -1,0 +1,120 @@
+name: build-ipa
+
+# Builds the unsigned/ad-hoc-signed Mush8 iOS .ipa with the project's own
+# make-ios.sh on an Apple Silicon macOS runner, then uploads it as an artifact.
+#
+# The game data (base.nsp / update.nsp) is deliberately NOT part of this repo or
+# of the build: work/v-upd already holds the extracted ExeFS modules and the
+# shader AOT cache is left empty on purpose, so the game compiles whatever it
+# needs while it runs (the documented fallback in README).
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  ipa:
+    runs-on: macos-26
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          lfs: false
+
+      - name: Runner facts
+        run: |
+          set -x
+          uname -a
+          sw_vers
+          xcodebuild -version
+          df -h /
+          sysctl -n hw.ncpu hw.memsize
+
+      - name: Install tooling
+        run: |
+          set -eux
+          command -v cmake >/dev/null || brew install cmake
+          command -v pkg-config >/dev/null || brew install pkgconf
+          command -v xcodegen >/dev/null || brew install xcodegen
+          cmake --version | head -1
+          xcodegen --version
+
+      - name: iOS SDK
+        run: |
+          set -eux
+          if ! xcodebuild -showsdks 2>/dev/null | grep -q iphoneos; then
+            xcodebuild -downloadPlatform iOS
+          fi
+          xcodebuild -showsdks
+
+      - name: Rust toolchains
+        run: |
+          set -eux
+          rustup toolchain list || true
+          rustup toolchain install stable --profile minimal
+          rustup default stable
+          TC="$(grep -m1 '^TOOLCHAIN=' make-ios.sh | cut -d= -f2)"
+          if ! rustup toolchain list | grep -q "^${TC}"; then
+            rustup toolchain install "$TC" --profile minimal || {
+              echo "toolchain $TC is not available, building with stable"
+              TC=stable
+              sed -i '' "s/^TOOLCHAIN=.*/TOOLCHAIN=stable/" make-ios.sh
+            }
+          fi
+          rustup target add aarch64-apple-ios --toolchain "$TC"
+          cargo --version
+          "cargo" "+$TC" --version
+
+      - name: Metal Toolchain
+        run: |
+          set -eux
+          if xcrun -sdk iphoneos metal --version >/dev/null 2>&1; then
+            echo "iOS Metal toolchain already installed"
+            exit 0
+          fi
+          xcodebuild -downloadComponent MetalToolchain
+          xcrun -sdk iphoneos metal --version
+
+      - name: Neutralise the steps that need the game dumps
+        run: |
+          set -eux
+          test -f work/v-upd/exefs/main
+          test -f work/v-upd/exefs/subsdk0
+          test -f work/v-upd/exefs/sdk
+          test -f work/v-upd/exefs/main.npdm
+          # make-ios.sh only needs an update.nsp of the same size as the one work/v-upd was made from;
+          # the shader precompile reads the pre-extracted ExeFS modules, not the .nsp
+          S=1
+          printf '%s' "$S" > update.nsp
+          printf '%s' "$S" > work/v-upd/source
+          ls -l update.nsp work/v-upd/source
+      - name: make-ios.sh --ipa
+        run: |
+          set -eux
+          chmod +x build.sh make-ios.sh make-app.sh install-phone.sh
+          BUNDLE_ID="app.perseus4004.sunset349" ./make-ios.sh --ipa
+        env:
+          CARGO_TERM_COLOR: always
+          CARGO_INCREMENTAL: "0"
+
+      - name: Report
+        if: always()
+        run: |
+          set -x
+          ls -l build/ 2>/dev/null || true
+          du -sh build/Mush8.ipa 2>/dev/null || true
+          tail -40 build/build.log 2>/dev/null || true
+
+      - name: Upload the ipa
+        uses: actions/upload-artifact@v4
+        with:
+          name: Mush8-ipa
+          path: build/Mush8.ipa
+          if-no-files-found: error
+          retention-days: 14
+          compression-level: 0

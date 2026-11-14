@@ -1,0 +1,21 @@
+/build/
+/target/
+/work/
+/Firmware/
+/ios/Mush8.xcodeproj/
+*.nsp
+*.xci
+*.nca
+*.keys
+.DS_Store
+.localized
+__MACOSX/
+.AppleDouble
+.LSOverride
+Icon[
+]
+
+# derived from game data — never commit
+/data/corpus.zip
+/data/pso4.zip
+/data/pipelines.tsv
