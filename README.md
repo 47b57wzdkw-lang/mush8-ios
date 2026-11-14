@@ -3,6 +3,14 @@
 > no extracted ExeFS modules, no captured shaders, no pipeline archives. You need your own
 > dump (see *Game files* below). Upstream Mush8: <https://github.com/c22dev/mush8> (GPL-3.0).
 
+## Disclaimer
+
+The documentation in [`docs/`](docs/) is published for **study, discussion and research only**.
+**No commercial use** of the guide, its translations or any game-derived data is permitted; **no
+game data is distributed** here and none will be; you must own your own copy of the game. The
+source code remains GPL-3.0 (see [`LICENSE`](LICENSE)). Full text: [`DISCLAIMER.md`](DISCLAIMER.md)
+(中文：[`DISCLAIMER.zh.md`](DISCLAIMER.zh.md)).
+
 # Mush8
 A native Mach-O iOS/macOS port of Mario Kart 8 Deluxe, with LAN, online and wireless multiplayer
 

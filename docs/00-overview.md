@@ -111,3 +111,12 @@ the expected shapes in [`03-results.md`](03-results.md).
 The full version - every parameter, the build matrix, the CI route and troubleshooting - is in
 [`06-toolchain.md`](06-toolchain.md). Every chapter also has a Chinese full version in the
 matching `*.zh.md` file (see [`00-overview.zh.md`](00-overview.zh.md) §6 for the list).
+
+## 6. Disclaimer
+
+This guide, its translations and any game-derived data produced with it are published for **study,
+discussion and research only**, and are **not licensed for commercial use**. No game data of any
+kind is distributed here, and none will be: building or running anything described requires your
+own copy of the game. This is an independent effort with no affiliation to Nintendo. The source
+code remains under GPL-3.0. The full terms are in [`DISCLAIMER.md`](../DISCLAIMER.md)
+([中文](../DISCLAIMER.zh.md)).

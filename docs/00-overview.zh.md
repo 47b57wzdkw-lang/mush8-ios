@@ -92,3 +92,10 @@ python3 tools/merge_corpus.py --repo . --capture dump_msl_rt --pipelines dump_wo
 - [`06-toolchain.zh.md`](06-toolchain.zh.md) —— 工具链与分步操作（完整版）
 
 英文版为同名去掉 `.zh` 的文件。
+
+## 7. 免责声明
+
+本指南、其译本以及用它产出的任何游戏派生数据，仅用于**学习、讨论与研究**，**不授权任何商业用途**。
+这里不分发任何形式的游戏数据，今后也不会：构建或运行文中任何内容，都需要你自己拥有该游戏。本项目是
+独立尝试，与任天堂无任何关联；源代码仍遵循 GPL-3.0。完整条款见
+[`DISCLAIMER.zh.md`](../DISCLAIMER.zh.md)（[English](../DISCLAIMER.md)）。

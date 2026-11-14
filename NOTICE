@@ -10,3 +10,6 @@ This repository intentionally contains no game data of any kind: no prod.keys, n
 .nca, no extracted ExeFS modules, no firmware, no Mii data, no captured shaders and no pipeline
 archives. Building or running it requires the user's own game dump. Do not redistribute data
 captured from the game.
+
+The documentation in docs/ is published for study, discussion and research only and is not licensed
+for commercial use. See DISCLAIMER.md and DISCLAIMER.zh.md for the full terms.
