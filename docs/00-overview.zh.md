@@ -78,4 +78,17 @@ python3 tools/merge_corpus.py --repo . --capture dump_msl_rt --pipelines dump_wo
 ```
 
 **复测**：重新构建安装，`grep -E 'prewarmed|coverage|first frame waited|slow frame' dump_work/nxhost.log`。
-完整版本、参数含义、CI 方式与故障排查见 [`06-toolchain.md`](06-toolchain.md)。
+完整版本、参数含义、CI 方式与故障排查见 [`06-toolchain.zh.md`](06-toolchain.zh.md)。
+
+## 6. 中文全文版
+
+本篇是速查；每个章节都有中文全文，与英文版一一对应：
+
+- [`01-diagnosis.zh.md`](01-diagnosis.zh.md) —— 诊断：卡顿从哪来
+- [`02-method.zh.md`](02-method.zh.md) —— 方法：采集、合并、预热
+- [`03-results.zh.md`](03-results.zh.md) —— 结果：三轮真机数据
+- [`04-reproduce.zh.md`](04-reproduce.zh.md) —— 复现步骤
+- [`05-limitations.zh.md`](05-limitations.zh.md) —— 局限与未解问题
+- [`06-toolchain.zh.md`](06-toolchain.zh.md) —— 工具链与分步操作（完整版）
+
+英文版为同名去掉 `.zh` 的文件。

@@ -1,5 +1,5 @@
 > **Fork note.** This repository is the iOS port of Mush8 plus the runtime shader-corpus
-> pipeline documented in [`docs/`](docs/). It contains **no game data** — no keys, no dumps,
+> pipeline documented in [`docs/`](docs/) (Chinese full versions live alongside as `docs/*.zh.md`). It contains **no game data** — no keys, no dumps,
 > no extracted ExeFS modules, no captured shaders, no pipeline archives. You need your own
 > dump (see *Game files* below). Upstream Mush8: <https://github.com/c22dev/mush8> (GPL-3.0).
 

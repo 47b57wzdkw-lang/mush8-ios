@@ -109,4 +109,5 @@ python3 tools/merge_corpus.py --repo . --capture dump_msl_rt --pipelines dump_wo
 the expected shapes in [`03-results.md`](03-results.md).
 
 The full version - every parameter, the build matrix, the CI route and troubleshooting - is in
-[`06-toolchain.md`](06-toolchain.md).
+[`06-toolchain.md`](06-toolchain.md). Every chapter also has a Chinese full version in the
+matching `*.zh.md` file (see [`00-overview.zh.md`](00-overview.zh.md) §6 for the list).
