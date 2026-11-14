@@ -29,6 +29,8 @@ no extracted ExeFS modules, no captured shaders, no pipeline archives.
 | [`06-toolchain.zh.md`](06-toolchain.zh.md) | 工具链、版本、分步操作与故障排查 |
 | [`07-publish.md`](07-publish.md) | Publishing flow, the 11 failures it hit, and each fix |
 | [`07-publish.zh.md`](07-publish.zh.md) | 发布流程与踩过的 11 个坑 |
+| [`08-new-device.md`](08-new-device.md) | New Mac / new iPhone: what to back up, and redeploy in one pass |
+| [`08-new-device.zh.md`](08-new-device.zh.md) | 换 Mac / 换 iPhone：备份清单与快速重新部署 |
 
 ## Headline numbers
 

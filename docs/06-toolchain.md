@@ -76,7 +76,7 @@ resulting `work/prepared_ios.noindex/prepared` can be copied to the app instead 
 | macOS app (manual) | `./make-app.sh` | `build/Mush8.app` |
 | iOS, straight to device | `./make-ios.sh --install` | installed `Mush8.app` |
 | iOS, installable `.ipa` | `./make-ios.sh --ipa` | `build/Mush8.ipa` |
-| install an `.ipa` | `./install-phone.sh --ipa` | installs on the connected device |
+| install an `.ipa` | `xcrun devicectl device install app --device <id> build/Mush8.ipa` | installs on the connected device |
 
 Environment knobs:
 
@@ -93,7 +93,7 @@ first launch instead. `xcrun -sdk iphoneos metal-tt -help` lists the accepted `-
 your Xcode version; use the one matching the target device.
 
 The `.ipa` from `--ipa` is ad-hoc signed (no certificate needed). Install it with
-`./install-phone.sh --ipa`, `xcrun devicectl device install app`, or AltStore / SideStore.
+`xcrun devicectl device install app --device <id> build/Mush8.ipa`, `xcrun devicectl device install app`, or AltStore / SideStore.
 
 ## E. Turn capture on
 
@@ -138,7 +138,7 @@ the resulting `corpus.zip` entry count.
 ## G. Rebuild and verify
 
 ```sh
-./make-ios.sh --ipa && ./install-phone.sh --ipa
+./make-ios.sh --ipa && xcrun devicectl device install app --device <id> build/Mush8.ipa
 
 python3 tools/pull_shader_dumps.py --bundle <BUNDLE_ID> --out /tmp/x --log dump_work/nxhost.log
 grep -E 'prewarmed|coverage|first frame waited|slow frame|pipeline bases' dump_work/nxhost.log

@@ -74,7 +74,7 @@ app 导入，或用 `devicectl device copy`）。`make-ios.sh` 会在 Mac 上把
 | macOS app（手工） | `./make-app.sh` | `build/Mush8.app` |
 | iOS，直接装机 | `./make-ios.sh --install` | 装好的 `Mush8.app` |
 | iOS，可安装的 `.ipa` | `./make-ios.sh --ipa` | `build/Mush8.ipa` |
-| 安装 `.ipa` | `./install-phone.sh --ipa` | 装到已连接的设备 |
+| 安装 `.ipa` | `xcrun devicectl device install app --device <id> build/Mush8.ipa` | 装到已连接的设备 |
 
 环境变量开关：
 
@@ -89,7 +89,7 @@ PSO_GPUS=applegpu_g14            # 为该 GPU 家族渲染 Metal 4 管线档案
 31.2 s 降到 7.0 s 的东西；没有它们，同样的管线会在首次启动时现编。`xcrun -sdk iphoneos metal-tt
 -help` 会列出你这份 Xcode 接受的 `-arch` 名称；用与目标设备匹配的那个。
 
-`--ipa` 产出的 `.ipa` 是 ad-hoc 签名的（不需要证书）。用 `./install-phone.sh --ipa`、
+`--ipa` 产出的 `.ipa` 是 ad-hoc 签名的（不需要证书）。用 `xcrun devicectl device install app --device <id> build/Mush8.ipa`、
 `xcrun devicectl device install app`，或 AltStore / SideStore 安装。
 
 ## E. 打开采集
@@ -134,7 +134,7 @@ python3 tools/merge_corpus.py --repo . \
 ## G. 重构建并验证
 
 ```sh
-./make-ios.sh --ipa && ./install-phone.sh --ipa
+./make-ios.sh --ipa && xcrun devicectl device install app --device <id> build/Mush8.ipa
 
 python3 tools/pull_shader_dumps.py --bundle <BUNDLE_ID> --out /tmp/x --log dump_work/nxhost.log
 grep -E 'prewarmed|coverage|first frame waited|slow frame|pipeline bases' dump_work/nxhost.log

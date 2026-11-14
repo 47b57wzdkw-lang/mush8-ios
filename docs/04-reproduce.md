@@ -51,7 +51,7 @@ ignored by `.gitignore`: they are derived from game data and must not be committ
 ## 4. Rebuild, reinstall, verify
 
 ```sh
-./make-ios.sh --ipa && ./install-phone.sh --ipa
+./make-ios.sh --ipa && xcrun devicectl device install app --device <id> build/Mush8.ipa
 ```
 
 Then read the log:

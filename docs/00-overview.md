@@ -92,7 +92,7 @@ python3 -m pip install --user pymobiledevice3
 
 **Build.** `./make-ios.sh --ipa` (ad-hoc signed; `BUNDLE_ID`, `TEAM` and `FREE=1` are optional);
 add `PSO_GPUS=applegpu_g14` to render the Metal 4 pipeline archives for your GPU family; then
-`./install-phone.sh --ipa`.
+`xcrun devicectl device install app --device <id> build/Mush8.ipa`.
 
 **Capture.** Put `NX_DUMP_MSL=1`, `NX_RECORD_PIPELINES=1`, `NX_SLOW_FRAME=100`,
 `NX_PREWARM_THREADS=6` and `NX_FPS=1` in the app's `Documents/env.txt`, relaunch, and play the

@@ -12,6 +12,7 @@ capture → merge → prewarm loop that removes runtime shader-compilation stall
 | 05 | [Limitations](docs/05-limitations.md) | [局限](docs/05-limitations.zh.md) |
 | 06 | [Toolchain](docs/06-toolchain.md) | [工具链](docs/06-toolchain.zh.md) |
 | 07 | [Publishing flow & 11 failures](docs/07-publish.md) | [发布流程](docs/07-publish.zh.md) |
+| 08 | [New Mac / new iPhone](docs/08-new-device.md) | [换机部署](docs/08-new-device.zh.md) |
 
 Headline: recorded pipelines with AOT shaders 17% → 42%, worst frame 14.9 s → none above
 100 ms. The repository ships **no game data** — no keys, dumps, extracted ExeFS modules,

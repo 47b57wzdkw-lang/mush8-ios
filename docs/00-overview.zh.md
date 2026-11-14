@@ -67,7 +67,7 @@ iOS 没有 JIT，第二条路就是卡顿来源。首次装机实测：参考管
 
 **安装**：`xcodebuild -downloadComponent MetalToolchain`；`brew install cmake pkgconf xcodegen`；`rustup toolchain install 1.98.1 && rustup target add aarch64-apple-ios --toolchain 1.98.1`；`pip install pymobiledevice3`。
 
-**构建**：`./make-ios.sh --ipa`（ad-hoc 签名；`BUNDLE_ID`/`TEAM`/`FREE=1` 可选；加 `PSO_GPUS=applegpu_g14` 可生成本机 GPU 的管线档案）→ `./install-phone.sh --ipa`。
+**构建**：`./make-ios.sh --ipa`（ad-hoc 签名；`BUNDLE_ID`/`TEAM`/`FREE=1` 可选；加 `PSO_GPUS=applegpu_g14` 可生成本机 GPU 的管线档案）→ `xcrun devicectl device install app --device <id> build/Mush8.ipa`。
 
 **采集**：App 的 `Documents/env.txt` 写入 `NX_DUMP_MSL=1`、`NX_RECORD_PIPELINES=1`、`NX_SLOW_FRAME=100`、`NX_PREWARM_THREADS=6`、`NX_FPS=1`，重启 App 后正常玩一局。
 

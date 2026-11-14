@@ -49,7 +49,7 @@ python3 tools/merge_corpus.py --repo . \
 ## 4. 重构建、重装、验证
 
 ```sh
-./make-ios.sh --ipa && ./install-phone.sh --ipa
+./make-ios.sh --ipa && xcrun devicectl device install app --device <id> build/Mush8.ipa
 ```
 
 然后看日志：
