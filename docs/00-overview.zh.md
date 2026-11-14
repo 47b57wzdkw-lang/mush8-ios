@@ -58,3 +58,24 @@ iOS 没有 JIT，第二条路就是卡顿来源。首次装机实测：参考管
   这是「玩到 → 采到 → 回灌」的收敛过程，不是一次性开关。
 - 管线档案与着色器语料都是从游戏数据派生的，**不能随仓库分发**；仓库只给方法和工具。
 - 数据来自单台设备（iOS 26 / Metal 4），其它 GPU 家族需要各自采集一轮。
+
+## 5. 工具与步骤（速查）
+
+**工具**：Apple Silicon Mac + macOS 14+、Xcode 26（iOS 26 SDK）+ Metal Toolchain、Rust 1.98.1 + `aarch64-apple-ios`、Homebrew 的 cmake/pkgconf/xcodegen、Python 3.10+ 与 pymobiledevice3 11.51、iPhone（iOS 26+，6GB 内存）、自备游戏 dump。
+
+**安装**：`xcodebuild -downloadComponent MetalToolchain`；`brew install cmake pkgconf xcodegen`；`rustup toolchain install 1.98.1 && rustup target add aarch64-apple-ios --toolchain 1.98.1`；`pip install pymobiledevice3`。
+
+**构建**：`./make-ios.sh --ipa`（ad-hoc 签名；`BUNDLE_ID`/`TEAM`/`FREE=1` 可选；加 `PSO_GPUS=applegpu_g14` 可生成本机 GPU 的管线档案）→ `./install-phone.sh --ipa`。
+
+**采集**：App 的 `Documents/env.txt` 写入 `NX_DUMP_MSL=1`、`NX_RECORD_PIPELINES=1`、`NX_SLOW_FRAME=100`、`NX_PREWARM_THREADS=6`、`NX_FPS=1`，重启 App 后正常玩一局。
+
+**回灌**：
+
+```sh
+python3 tools/pull_shader_dumps.py --bundle <BUNDLE_ID> \
+    --out dump_msl_rt --pipelines-out dump_work/pipelines_rt.tsv --log dump_work/nxhost.log
+python3 tools/merge_corpus.py --repo . --capture dump_msl_rt --pipelines dump_work/pipelines_rt.tsv
+```
+
+**复测**：重新构建安装，`grep -E 'prewarmed|coverage|first frame waited|slow frame' dump_work/nxhost.log`。
+完整版本、参数含义、CI 方式与故障排查见 [`06-toolchain.md`](06-toolchain.md)。

@@ -18,7 +18,8 @@ no extracted ExeFS modules, no captured shaders, no pipeline archives.
 | [`01-diagnosis.md`](01-diagnosis.md) | Why the stalls happen, and the evidence that pinned them |
 | [`02-method.md`](02-method.md) | Capture hooks, corpus merge, `shfind`, prewarm, instrumentation |
 | [`03-results.md`](03-results.md) | Three rounds of measurements, before/after |
-| [`04-reproduce.md`](04-reproduce.md) | Build, capture, merge, measure — step by step |
+| [`04-reproduce.md`](04-reproduce.md) | Build, capture, merge, measure — short version |
+| [`06-toolchain.md`](06-toolchain.md) | Full toolchain, versions, build/capture/merge steps, troubleshooting |
 | [`05-limitations.md`](05-limitations.md) | What is still not covered, and why |
 
 ## Headline numbers
