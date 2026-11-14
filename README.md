@@ -1,7 +1,22 @@
-> **Fork note.** This repository is the iOS port of Mush8 plus the runtime shader-corpus
-> pipeline documented in [`docs/`](docs/) (Chinese full versions live alongside as `docs/*.zh.md`). It contains **no game data** — no keys, no dumps,
-> no extracted ExeFS modules, no captured shaders, no pipeline archives. You need your own
-> dump (see *Game files* below). Upstream Mush8: <https://github.com/c22dev/mush8> (GPL-3.0).
+**Study notes — iOS port & shader corpus.** This fork is the iOS port of Mush8 plus the
+capture → merge → prewarm loop that removes runtime shader-compilation stalls, written up in
+[`docs/`](docs/). Every chapter exists in English (`*.md`) and Chinese (`*.zh.md`).
+
+| | Chapter | 中文 |
+|---|---|---|
+| 00 | [Overview](docs/00-overview.md) | [现状汇总](docs/00-overview.zh.md) |
+| 01 | [Diagnosis](docs/01-diagnosis.md) | [诊断](docs/01-diagnosis.zh.md) |
+| 02 | [Method](docs/02-method.md) | [方法](docs/02-method.zh.md) |
+| 03 | [Results](docs/03-results.md) | [结果](docs/03-results.zh.md) |
+| 04 | [Reproduce](docs/04-reproduce.md) | [复现](docs/04-reproduce.zh.md) |
+| 05 | [Limitations](docs/05-limitations.md) | [局限](docs/05-limitations.zh.md) |
+| 06 | [Toolchain](docs/06-toolchain.md) | [工具链](docs/06-toolchain.zh.md) |
+| 07 | [Publishing flow & 11 failures](docs/07-publish.md) | [发布流程](docs/07-publish.zh.md) |
+
+Headline: recorded pipelines with AOT shaders 17% → 42%, worst frame 14.9 s → none above
+100 ms. The repository ships **no game data** — no keys, dumps, extracted ExeFS modules,
+captured shaders or pipeline archives; you need your own dump (see *Game files* below).
+Upstream Mush8: <https://github.com/c22dev/mush8> (GPL-3.0).
 
 ## Disclaimer
 

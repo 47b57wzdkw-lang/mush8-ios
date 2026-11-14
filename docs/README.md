@@ -16,13 +16,19 @@ no extracted ExeFS modules, no captured shaders, no pipeline archives.
 | [`00-overview.md`](00-overview.md) | English summary: problem, method, three rounds, limits |
 | [`00-overview.zh.md`](00-overview.zh.md) | 中文汇总：背景、方法、三轮实测数据、边界 |
 | [`01-diagnosis.md`](01-diagnosis.md) | Why the stalls happen, and the evidence that pinned them |
+| [`01-diagnosis.zh.md`](01-diagnosis.zh.md) | 诊断：卡顿从哪来、埋点、基线、只扫 ExeFS 为何不够 |
 | [`02-method.md`](02-method.md) | Capture hooks, corpus merge, `shfind`, prewarm, instrumentation |
+| [`02-method.zh.md`](02-method.zh.md) | 方法：采集、合并、溯源、预热、管线档案、调参 |
 | [`03-results.md`](03-results.md) | Three rounds of measurements, before/after |
+| [`03-results.zh.md`](03-results.zh.md) | 结果：覆盖率、启动、最坏帧、语料增长 |
 | [`04-reproduce.md`](04-reproduce.md) | Build, capture, merge, measure — short version |
-| [`06-toolchain.md`](06-toolchain.md) | Full toolchain, versions, build/capture/merge steps, troubleshooting |
-| [`07-publish.md`](07-publish.md) | Publishing flow, the 11 failures it hit, and each fix (EN) |
-| [`07-publish.zh.md`](07-publish.zh.md) | 发布流程与踩过的 11 个坑（中文） |
+| [`04-reproduce.zh.md`](04-reproduce.zh.md) | 复现：构建、采集、合并、验证、着色器溯源 |
 | [`05-limitations.md`](05-limitations.md) | What is still not covered, and why |
+| [`05-limitations.zh.md`](05-limitations.zh.md) | 局限与未解问题 |
+| [`06-toolchain.md`](06-toolchain.md) | Full toolchain, versions, build/capture/merge steps, troubleshooting |
+| [`06-toolchain.zh.md`](06-toolchain.zh.md) | 工具链、版本、分步操作与故障排查 |
+| [`07-publish.md`](07-publish.md) | Publishing flow, the 11 failures it hit, and each fix |
+| [`07-publish.zh.md`](07-publish.zh.md) | 发布流程与踩过的 11 个坑 |
 
 ## Headline numbers
 
