@@ -70,3 +70,43 @@ not to reduce specializations.
 - Pipeline archives and the shader corpus are derived from game data and **cannot be
   redistributed**; this repository publishes the method and the tooling only.
 - Numbers come from a single device (iOS 26 / Metal 4); other GPU families need their own round.
+
+## 5. Tools and steps (quick reference)
+
+**Tools.** Apple Silicon Mac on macOS 14+ (26 for these numbers); Xcode 26 with the iOS 26 SDK and
+the Metal Toolchain (`xcodebuild -downloadComponent MetalToolchain`); Rust 1.98.1 with the
+`aarch64-apple-ios` target; Homebrew's `cmake`, `pkgconf`, `xcodegen`; Python 3.10+ with
+pymobiledevice3 11.51 for pulling captures; an iPhone/iPad on iOS 26+ with 6 GB of RAM; and your
+own game dump (`prod.keys`, `base.nsp`, `update.nsp` 4.0.1 or 3.0.5, optional `dlc.nsp`).
+
+**Install.**
+
+```sh
+xcodebuild -downloadComponent MetalToolchain
+brew install cmake pkgconf xcodegen
+rustup toolchain install 1.98.1 && rustup target add aarch64-apple-ios --toolchain 1.98.1
+python3 -m pip install --user pymobiledevice3
+```
+
+**Build.** `./make-ios.sh --ipa` (ad-hoc signed; `BUNDLE_ID`, `TEAM` and `FREE=1` are optional);
+add `PSO_GPUS=applegpu_g14` to render the Metal 4 pipeline archives for your GPU family; then
+`./install-phone.sh --ipa`.
+
+**Capture.** Put `NX_DUMP_MSL=1`, `NX_RECORD_PIPELINES=1`, `NX_SLOW_FRAME=100`,
+`NX_PREWARM_THREADS=6` and `NX_FPS=1` in the app's `Documents/env.txt`, relaunch, and play the
+content once.
+
+**Pull and merge.**
+
+```sh
+python3 tools/pull_shader_dumps.py --bundle <BUNDLE_ID> \
+    --out dump_msl_rt --pipelines-out dump_work/pipelines_rt.tsv --log dump_work/nxhost.log
+python3 tools/merge_corpus.py --repo . --capture dump_msl_rt --pipelines dump_work/pipelines_rt.tsv
+```
+
+**Verify.** Rebuild, reinstall, then
+`grep -E 'prewarmed|coverage|first frame waited|slow frame' dump_work/nxhost.log` and compare with
+the expected shapes in [`03-results.md`](03-results.md).
+
+The full version - every parameter, the build matrix, the CI route and troubleshooting - is in
+[`06-toolchain.md`](06-toolchain.md).
