@@ -1,5 +1,7 @@
 # Diagnosis: where the stalls come from
 
+> 中文版：[01-diagnosis.zh.md](01-diagnosis.zh.md)
+
 ## The rendering model in one paragraph
 
 The guest game issues NVN commands. `nxhost` turns them into Metal: an NVN shader blob is

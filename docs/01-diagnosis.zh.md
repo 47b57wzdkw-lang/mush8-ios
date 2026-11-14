@@ -1,5 +1,7 @@
 # 诊断：卡顿从哪来
 
+> English: [01-diagnosis.md](01-diagnosis.md)
+
 ## 一段话讲清渲染模型
 
 guest 游戏发出 NVN 命令，`nxhost` 把它们变成 Metal：NVN 着色器 blob 先翻译成 MSL，再编译——

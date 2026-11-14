@@ -1,5 +1,7 @@
 # Limitations and open questions
 
+> 中文版：[05-limitations.zh.md](05-limitations.zh.md)
+
 ## Coverage is content-shaped
 
 The remaining 58% of recorded pipelines are mostly content that was never reached during

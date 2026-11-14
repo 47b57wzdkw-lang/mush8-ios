@@ -1,5 +1,7 @@
 # Reproduce
 
+> 中文版：[04-reproduce.zh.md](04-reproduce.zh.md)
+
 You need your own game dump (see `README.md`). This repository ships no game data, no keys and
 no extracted modules, so a plain `git clone` will **not** produce a runnable app until you add
 them.

@@ -1,5 +1,7 @@
 # 结果：真机上跑了三轮
 
+> English: [03-results.md](03-results.md)
+
 一台 iPhone，iOS 26，Metal 4。数字抄自设备上的 `nxhost.log` 和帧采样器；语料与管线列表就是打进
 app 的那一份。
 

@@ -1,5 +1,7 @@
 # Toolchain and step-by-step
 
+> 中文版：[06-toolchain.zh.md](06-toolchain.zh.md)
+
 Everything the capture → merge → prewarm loop needs, with the versions used for the numbers in
 [`03-results.md`](03-results.md). Nothing here requires game data to be committed; the dump is
 yours and stays on your machine.

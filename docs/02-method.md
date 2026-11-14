@@ -1,5 +1,7 @@
 # Method: capture on device, merge offline, prewarm at launch
 
+> 中文版：[02-method.zh.md](02-method.zh.md)
+
 The loop is deliberately boring: the device tells us which shaders it had to compile, we add
 them to the corpus, rebuild, and verify the counters move. Everything is driven by environment
 variables so a normal build stays clean.

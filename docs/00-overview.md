@@ -1,5 +1,7 @@
 # Overview: teaching the device to report its own missing shaders
 
+> 中文版：[00-overview.zh.md](00-overview.zh.md)
+
 > Recorded 2026-11-14. The repository ships source and tooling only — **no game data** of any
 > kind (keys, .nsp, ExeFS modules, shaders, pipeline archives).
 

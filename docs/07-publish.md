@@ -1,5 +1,7 @@
 # Publishing this repository: the flow, and every place it broke
 
+> 中文版：[07-publish.zh.md](07-publish.zh.md)
+
 How these notes and the iOS port source were pushed to GitHub from a **Windows** host on
 2026-11-14, including the eleven failures along the way and the exact fix for each. Everything
 below is reproducible with a normal GitHub account; no game data is involved.

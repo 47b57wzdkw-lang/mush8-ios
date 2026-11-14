@@ -1,5 +1,7 @@
 # 工具链与分步操作
 
+> English: [06-toolchain.md](06-toolchain.md)
+
 采集 → 合并 → 预热 这个循环需要的一切，以及 [`03-results.zh.md`](03-results.zh.md) 里那些数字所用
 的版本。这里没有任何一步需要把游戏数据提交进仓库；dump 是你自己的，只留在你机器上。
 

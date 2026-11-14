@@ -1,5 +1,7 @@
 # Results: three rounds on a real device
 
+> 中文版：[03-results.zh.md](03-results.zh.md)
+
 One iPhone, iOS 26, Metal 4. Numbers are copied from `nxhost.log` on the device and from the
 frame sampler; the corpus and pipeline list are the ones built into the app.
 

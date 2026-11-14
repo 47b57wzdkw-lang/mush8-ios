@@ -1,5 +1,7 @@
 # 复现
 
+> English: [04-reproduce.md](04-reproduce.md)
+
 你需要自己的游戏 dump（见 `README.md`）。本仓库不附带任何游戏数据、密钥或解出来的模块，所以纯
 `git clone` **不会**得到能跑的 app，除非你自己把这些加进去。
 
