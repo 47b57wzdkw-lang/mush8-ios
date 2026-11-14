@@ -13,6 +13,7 @@ no extracted ExeFS modules, no captured shaders, no pipeline archives.
 
 | Document | What it covers |
 |---|---|
+| [`00-overview.md`](00-overview.md) | English summary: problem, method, three rounds, limits |
 | [`00-overview.zh.md`](00-overview.zh.md) | 中文汇总：背景、方法、三轮实测数据、边界 |
 | [`01-diagnosis.md`](01-diagnosis.md) | Why the stalls happen, and the evidence that pinned them |
 | [`02-method.md`](02-method.md) | Capture hooks, corpus merge, `shfind`, prewarm, instrumentation |
